@@ -1,0 +1,5 @@
+*cpython*
+*.ipynb*
+site/*
+.cache/
+.venv/

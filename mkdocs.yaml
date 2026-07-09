@@ -1,0 +1,161 @@
+site_name: "Exploring CNC"
+site_url: https://cnc.bradpenney.io
+site_description: "CNC machining from first principles — coordinate systems, G-code, CAD/CAM with FreeCAD, and open-source machine control. Real cuts, real numbers, no prior knowledge assumed."
+site_author: Brad Penney
+copyright: >-
+  Copyright &copy; Brad Penney —
+  <a href="#__consent">Change cookie settings</a>
+
+extra:
+  analytics:
+    provider: google
+    property: G-V01MJ4R3SQ
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to measure how effective our content is and whether you
+      find what you're looking for. With your consent, you help make these
+      learning sites better. You can change your choice at any time.
+    cookies:
+      analytics:
+        name: Google Analytics
+        checked: false
+    actions:
+      - accept
+      - reject
+      - manage
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/bradpenney
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/bradpenney
+    - icon: fontawesome/solid/rss
+      link: https://cnc.bradpenney.io/feed_rss_created.xml
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+theme:
+  name: material
+  custom_dir: overrides
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  palette:
+    scheme: slate
+    primary: black
+    accent: amber
+  logo: images/exploring_cnc.png
+  favicon: images/exploring_cnc.png
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - content.code.highlight
+    - content.tooltips
+    - content.code.mermaid
+
+plugins:
+  - search
+  - meta
+  # - exclude:
+  #     glob:
+  #       - "essential/*"
+  #       - "efficient/*"
+  #       - "mastery/*"
+  # Add the exclude plugin (uncommented) once draft articles exist under a
+  # tier directory — list each draft path/glob here, matching the sibling
+  # exploring_* sites, then remove the line as each article is published.
+  - rss:
+      match_path: ".*"
+      image: https://cnc.bradpenney.io/images/exploring_cnc.png
+      abstract_chars_count: 160
+      length: 20
+      date_from_meta:
+        as_creation: "date"
+        as_update: "git"
+        default_timezone: "America/Halifax"
+      categories:
+        - tags
+      use_material_social_cards: false
+  - social:
+      cards: true
+      cards_layout_options:
+        background_color: "#1a202c"
+        color: "#cbd5e0"
+  - htmlproofer:
+      enabled: true
+      validate_rendered_template: true
+      validate_external_urls: false
+      raise_error: true
+      raise_error_after_finish: true
+      raise_error_excludes:
+        404:
+          - "#__consent"
+
+markdown_extensions:
+  - toc:
+      permalink: "🔗"
+      permalink_title: "Link to this section"
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+
+nav:
+  - Home: index.md
+
+# Topics (grow across tiers — file new articles under their topic group):
+#   Machine Foundations · Reading G-code · CAD/CAM Workflow ·
+#   Machine Control · Materials & Cutting · Maintenance & Calibration
+# Nav is tier-first, topics nested inside each tier — see CLAUDE.md for the
+# full architecture. Add a tier block below once its first article exists.
+
+  - 📦 Essential:
+      - Machine Foundations:
+          - Axes and Coordinate Systems: essential/axes_and_coordinate_systems.md
+      - Reading G-code:
+          - Reading G-code: essential/reading_gcode_basics.md
+
+# - ⚡ Efficient:
+#     - Overview: efficient/overview.md
+
+# - 🎯 Mastery:
+#     - Overview: mastery/overview.md
