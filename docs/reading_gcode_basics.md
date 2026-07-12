@@ -6,8 +6,8 @@ description: "A generated G-code file looks like a wall of numbers. Learn the ha
 
 # Reading G-code
 
-!!! abstract "Essential"
-    This article is part of the **Essential** learning path — the foundations of CNC machining from first principles. No prior knowledge required.
+!!! abstract "Beginner"
+    No prior CAD, CAM, or machining knowledge required.
 
 Open a `.gcode` or `.nc` file straight out of a CAM program and it looks like noise — thousands of lines of letters and numbers, no comments, no narrative. It's tempting to conclude you'd need to be some kind of programmer to make sense of it.
 

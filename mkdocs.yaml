@@ -80,12 +80,10 @@ plugins:
   - meta
   # - exclude:
   #     glob:
-  #       - "essential/*"
-  #       - "efficient/*"
-  #       - "mastery/*"
-  # Add the exclude plugin (uncommented) once draft articles exist under a
-  # tier directory — list each draft path/glob here, matching the sibling
-  # exploring_* sites, then remove the line as each article is published.
+  #       - "draft_article.md"
+  # Add the exclude plugin (uncommented) once draft articles exist — list
+  # each draft path/glob here, matching the sibling exploring_* sites, then
+  # remove the line as each article is published.
   - rss:
       match_path: ".*"
       image: https://cnc.bradpenney.io/images/exploring_cnc.png
@@ -144,20 +142,19 @@ markdown_extensions:
 nav:
   - Home: index.md
 
-# Topics (grow across tiers — file new articles under their topic group):
-#   Machine Foundations · Reading G-code · CAD/CAM Workflow ·
-#   Machine Control · Materials & Cutting · Maintenance & Calibration
-# Nav is tier-first, topics nested inside each tier — see CLAUDE.md for the
-# full architecture. Add a tier block below once its first article exists.
+# Nav is topic-first — see CLAUDE.md for the full architecture. Add a topic
+# block below once its first article exists; keep empty topics commented out.
 
-  - 📦 Essential:
-      - Machine Foundations:
-          - Axes and Coordinate Systems: essential/axes_and_coordinate_systems.md
-      - Reading G-code:
-          - Reading G-code: essential/reading_gcode_basics.md
+  - Machine Foundations:
+      - Axes and Coordinate Systems: axes_and_coordinate_systems.md
+  - Reading G-code:
+      - Reading G-code: reading_gcode_basics.md
 
-# - ⚡ Efficient:
-#     - Overview: efficient/overview.md
-
-# - 🎯 Mastery:
-#     - Overview: mastery/overview.md
+# - CAD/CAM Workflow:
+#     - Overview: cadcam_workflow_overview.md
+# - Machine Control:
+#     - Overview: machine_control_overview.md
+# - Materials & Cutting:
+#     - Overview: materials_and_cutting_overview.md
+# - Maintenance & Calibration:
+#     - Overview: maintenance_and_calibration_overview.md

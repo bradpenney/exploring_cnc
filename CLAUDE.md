@@ -6,17 +6,17 @@ This file provides guidance to Claude Code when working with this repository.
 
 **Exploring CNC** teaches CNC machining and CAD/CAM to hobbyists through a progressive learning journey — from understanding what a coordinate system is to running a repeatable production batch. It follows the same editorial standards and progressive structure as the other exploring_* sites (see `~/notes/STYLING.md` for the shared visual brand).
 
-**Target Audience:** Hobbyists starting out with a desktop CNC router — a new build, a used machine, or a kit — who want to understand the workflow, not just copy setup videos. This is a hobby site (like `exploring_electronics`), not a professional/enterprise site: no prior machining, CAD, or software background assumed at the entry tier.
+**Target Audience:** Hobbyists starting out with a desktop CNC router — a new build, a used machine, or a kit — who want to understand the workflow, not just copy setup videos. This is a hobby site (like `exploring_electronics`), not a professional/enterprise site: no prior machining, CAD, or software background assumed for a beginner-tagged article.
 
 **Reference machine:** The author's own rig is a used X-Carve 2 (GRBL controller) running on Fedora Linux, with FreeCAD for CAD/CAM and Universal Gcode Sender (UGS) for machine control — an entirely open-source stack. Use this as the concrete example hardware/software for photos, screenshots, and worked examples, but keep concepts platform-agnostic where they generalize (GRBL is one of several controllers; FreeCAD is one of several CAM tools) — the same pattern `exploring_electronics` uses with Arduino as the reference board.
 
 **Teaching Philosophy:** Every article starts from what the reader can see and touch — the machine, the bit, the material — before introducing the abstraction underneath (coordinate systems, G-code, feeds and speeds math). Build confidence with real, low-stakes cuts before introducing anything that can ruin a workpiece or a bit.
 
-## Content Architecture: Topics × Tiers
+## Content Architecture: Topics
 
-The site is organized as a **grid: topics × tiers**. Topics are orthogonal to tiers — a **topic** is the subject (a vertical column that deepens through Essential → Efficient → Mastery); the **tier** is how deep. The same topic recurs under each tier as it gains articles. (Same model the electronics/Linux/CS sister sites use.)
+This is a hobby site, not a professional/enterprise or funnel site — there are no tiers, no personas to target, and no paywall. The site is organized purely by **topic**: the subject of the article (coordinate systems, G-code, CAD/CAM, etc.). Depth within a topic progresses naturally as articles accumulate, but that progression is signaled with a lightweight per-article difficulty tag, not a tier structure.
 
-**The six stable topics** (each grows across all three tiers):
+**The six stable topics** (each grows over time as articles are added):
 
 1. **Machine Foundations** — axes and coordinate systems, homing, work zero, spindle/router basics, machine safety
 2. **Reading G-code** — G-code commands, modal groups, coordinate systems (G54–G59), reading a post-processed file
@@ -27,12 +27,14 @@ The site is organized as a **grid: topics × tiers**. Topics are orthogonal to t
 
 **Navigation rules:**
 
-- Nav is **tier-first**, with topics nested as sub-groups inside each tier (`📦 Essential → Machine Foundations / Reading G-code / …`). Tier-first keeps the free/paid boundary clean (Mastery is the paywalled tier, if/when monetization happens).
-- Add a topic group to a tier's nav **only once it has a published article** there — never show empty groups.
-- **Directories stay flat for now** (`essential/`, `efficient/`, `mastery/`). Defer splitting into topic subdirectories until a topic has ~3+ articles — grouping today is nav-label only.
+- Nav is **topic-first**: each topic is its own top-level nav group (`Machine Foundations`, `Reading G-code`, …). No tier wrapper above them.
+- Add a topic to the nav **only once it has a published article** — never show empty groups.
+- **Directory stays flat for now** (`docs/*.md`). Defer splitting into topic subdirectories until a topic has ~3+ articles — grouping today is nav-label only.
 - If a cross-cutting reference shelf emerges (tool care, software installation guides that don't belong to one topic), give it its own top-level **Practical Tools** section — mirrors `exploring_electronics`.
 
-**Development phases:** Build Essential first across topics, then Efficient, then Mastery.
+**Difficulty tags:** Each article carries a small `!!! abstract "Beginner"` / `"Intermediate"` / `"Advanced"` admonition right under the H1, with one line of framing (what prior knowledge, if any, is assumed). This replaces tier badges — it's a per-article depth signal, not a site section or funnel stage.
+
+**Development phases:** No fixed phase order — build out topics as interest and machine time allow. Start each topic with a Beginner article before going deeper into it.
 
 ## Important Preferences
 
@@ -40,75 +42,22 @@ The site is organized as a **grid: topics × tiers**. Topics are orthogonal to t
 
 **MkDocs Operations**: The user handles running `mkdocs serve` and `mkdocs build` themselves. Do not run these commands.
 
-## Critical Persona Insight
+## Audience and Difficulty Tags
 
-**IMPORTANT**: The Essential tier is NOT software-developer-specific. It targets any serious adult beginner — no software background assumed, no software analogies required (unlike the developer-funnel sites, CNC's primary audience is the maker/hobbyist community, not platform engineers).
+**IMPORTANT**: This site is NOT software-developer-specific and has no funnel/persona machinery. It targets any serious adult beginner — no software background assumed, no software analogies required (unlike the developer-focused sites, CNC's audience is the maker/hobbyist community, not platform engineers). There is one audience, read at whatever depth the article calls for.
 
-### Essential: The Serious Adult Beginner
-
-**Who they are:**
-- Anyone who just got (or is about to get) a desktop CNC router: new build, used machine, or kit
-- No prior CAD, CAM, or machining knowledge required
+**Who reads this site:**
+- Anyone with (or about to get) a desktop CNC router: new build, used machine, or kit
 - May have general DIY/workshop experience but nothing CNC-specific
+- Some readers stick to simple wood cuts from downloaded models; others go on to design their own parts in FreeCAD, chase tight tolerances, or cut aluminum in small batches — the site should serve all of them as they grow, without gatekeeping any of it behind a tier
 
-**What they don't know:**
-- What a coordinate system or "work zero" actually means
-- How to read even a simple G-code file
-- Why a bit can shatter, burn a workpiece, or ruin a cut if the setup is wrong
-- The difference between a spindle and a trim router, or why it matters
+Every article carries a **difficulty tag** — `Beginner`, `Intermediate`, or `Advanced` — as a one-line admonition under the H1 (see `content.code.annotate`-style example in an existing article). Pick the tag by what the article assumes the reader already knows, not by some predetermined publishing phase:
 
-**Tone and approach for Essential:**
-- Mentor-to-learner voice — warm but serious, adult-to-adult
-- **Safety-first**: spinning cutting tools, dust, and flying material can injure; explain consequences before risky steps
-- Reassuring: mistakes are recoverable (stock and bits are cheap compared to a finger); build confidence incrementally
-- Concrete before abstract: show the physical setup, then the abstraction (axis on the machine → axis in the coordinate system)
+- **Beginner** — no prior CAD, CAM, or machining knowledge assumed. Mentor-to-learner voice, warm but serious. Safety-first: explain consequences before risky steps. Reassuring — mistakes are recoverable (stock and bits are cheap compared to a finger). Concrete before abstract: physical setup first, then the abstraction underneath it.
+- **Intermediate** — assumes basic machine operation (homing, jogging, loading a bit, running a job), reading simple G-code, and knowing what work zero is. Peer-to-peer, no hand-holding. Safety warnings still apply, framed professionally rather than reassuringly. Prefer manufacturer datasheets and real feeds/speeds numbers over simplified rules of thumb.
+- **Advanced** — assumes the full CAD/CAM workflow, feeds/speeds theory, and tool selection are second nature. Colleague-to-colleague, production context (tool life, cycle time, consistency across a batch), full technical depth, no apologies for complexity.
 
----
-
-### Efficient: The Maker Who Wants to Go Off-Script
-
-**Who they are:**
-- Has made a few successful cuts and can follow a CAM tutorial
-- Wants to design their own parts instead of downloading someone else's model
-- Ready to understand feeds/speeds math and choose their own toolpath strategy
-
-**What they already know:**
-- Basic machine operation: homing, jogging, loading a bit, running a job in UGS
-- How to read simple G-code
-- What work zero and a coordinate system are
-
-**What they don't know:**
-- How to design a part in FreeCAD from scratch (sketches → pad/pocket → Path operations)
-- How to choose feed rate, spindle speed, and depth of cut for a given bit/material combination
-- Troubleshooting a bad cut (chatter, burning, tool deflection)
-
-**Tone and approach for Efficient:**
-- **Peer-to-peer** — no hand-holding, treat them as capable makers
-- Safety warnings still apply but are framed professionally, not reassuringly
-- Datasheets and manufacturer feeds/speeds charts over simplified rules of thumb
-
----
-
-### Mastery: The Precision Hobbyist
-
-**Who they are:**
-- Runs the same job repeatably and cares about tolerance and surface finish
-- Cuts harder materials (aluminum, dense hardwoods) and needs process control, not luck
-- May be producing small batches or parts for other people
-
-**What they already know:**
-- Full CAD/CAM workflow, feeds/speeds theory, tool selection
-- Machine calibration (squaring, backlash, steps/mm)
-- Workholding strategy
-
-**Tone and approach for Mastery:**
-- Colleague-to-colleague — skip the basics, focus on precision and repeatability
-- Production context: tool life, cycle time, consistency across a batch
-- Deep technical depth — no apologies for complexity
-
----
-
-**The rule:** Read the section you're working on. Essential = beginner persona, safety-first. Efficient = peer-to-peer, off-script maker. Mastery = precision-focused, production-grade.
+**Safety is never optional at any tag** — only the framing (reassuring vs. professional vs. process-control) changes.
 
 ---
 
@@ -164,7 +113,7 @@ When an article is ready for publication (passes all quality checks), follow the
 4. **Verify Publication**:
    ```bash
    poetry run mkdocs build --strict
-   grep -o '<loc>[^<]*</loc>' site/sitemap.xml | grep essential
+   grep -o '<loc>[^<]*</loc>' site/sitemap.xml | grep the-article-slug
    ```
 5. **Update this file's exclude-configuration notes** to reflect what's NOW excluded.
 
@@ -190,16 +139,13 @@ When an article is ready for publication (passes all quality checks), follow the
 
 ## Project Structure
 
-- `docs/` - Markdown content organized by learning tier
-  - `essential/` - Getting started (first coordinate system, first cut, first FreeCAD model)
-  - `efficient/` - Going deeper (CAD/CAM workflow, feeds/speeds, real projects)
-  - `mastery/` - Precision level (calibration, tolerances, repeatable batches)
+- `docs/` - Markdown content, flat (grouped by topic in nav, not in directories — see Content Architecture above)
   - `images/` - Diagrams and machine/workpiece photos
   - `stylesheets/` - Custom CSS (`extra.css`)
 - `mkdocs.yaml` - Site configuration and navigation
 - `pyproject.toml` - Poetry dependencies
 
-**Important:** Directory structure mirrors site navigation. Articles reference each other using relative paths (e.g., `../essential/filename.md`).
+**Important:** All articles live flat in `docs/`; topic grouping is nav-label only (see Content Architecture above). Articles reference each other using relative paths (e.g., `filename.md`).
 
 ## Common Commands
 
@@ -222,33 +168,33 @@ poetry run mkdocs build --strict
 
 ### Tone and Style
 
-Tone varies by tier. See **Critical Persona Insight** above. The key rule:
+Tone varies by each article's difficulty tag. See **Audience and Difficulty Tags** above. The key rule:
 
-- **Essential** → mentorship voice, safety-first, concrete-before-abstract, reassuring
-- **Efficient** → peer-to-peer, no hand-holding, expects basic machine literacy
-- **Mastery** → colleague-to-colleague, precision/production focus, full technical depth
+- **Beginner** → mentorship voice, safety-first, concrete-before-abstract, reassuring
+- **Intermediate** → peer-to-peer, no hand-holding, expects basic machine literacy
+- **Advanced** → colleague-to-colleague, precision/production focus, full technical depth
 
-**Core Principles (all tiers):**
+**Core Principles (every article):**
 
 - **Safety-first**: Spinning cutters, dust, and ejected material can injure. Aluminum/magnesium fines and dust in general are a fire and inhalation hazard. Never omit safety context.
 - **Purpose-driven**: Always explain the "why" before the "how"
 - **Practical focus**: Real feeds/speeds numbers, real bit sizes, real material thicknesses — not vague theory
 - **No emoji spam**: limit to 1-3 per article, used strategically
 
-**Essential tone specifically:**
+**Beginner tone specifically:**
 
 - Empathetic openings anchored in the physical machine: "You just homed the machine. Now what does 'work zero' actually mean?"
 - Safety-first: explain what can go wrong and why, before any risky steps
 - Mentorship voice: "I'll show you..." not "You must..."
 
-**Efficient tone specifically:**
+**Intermediate tone specifically:**
 
 - Peer-to-peer: assume they can home the machine, load a bit, and run a job
 - Safety warnings still apply, but framed professionally — not reassuringly
 
-**Required Sections (all tiers):**
+**Required Sections (every article):**
 
-1. Opening hook with real-world context (Essential: empathetic; Efficient/Mastery: scenario-based)
+1. Opening hook with real-world context (Beginner: empathetic; Intermediate/Advanced: scenario-based)
 2. Core content with real numbers (dimensions, feeds, speeds, tolerances) and code/G-code snippets where relevant
 3. Safety warnings where appropriate
 4. Practice exercises with expandable solutions (`??? question`)
@@ -279,11 +225,11 @@ Use `!!! warning` for equipment/workpiece-destroying risks:
     a bit. Always confirm your CAM software's cut direction before running an unfamiliar job.
 ```
 
-**Safety escalation by context:**
+**Safety escalation by difficulty tag:**
 
-- Essential: Full explanation with WHY it's dangerous, not just "be careful"
-- Efficient: Professional callout — brief, assumes competence
-- Mastery: Process-control framing (repeatability, tool life, consistent finish) alongside safety
+- Beginner: Full explanation with WHY it's dangerous, not just "be careful"
+- Intermediate: Professional callout — brief, assumes competence
+- Advanced: Process-control framing (repeatability, tool life, consistent finish) alongside safety
 
 #### Units and Values in Prose
 
@@ -335,7 +281,7 @@ Three distinct visual types, each with a specific job — do not substitute one 
 
 - **Mermaid** — logical/block diagrams: signal flow between UGS → GRBL → machine, workflow steps (design → CAM → post → run). NOT a substitute for a real toolpath or coordinate diagram.
 - **Coordinate/toolpath diagrams** — schematic top-down or isometric views showing axes, work zero, and toolpath direction. Use simple labeled line art (SVG) rather than a photo when teaching an abstraction like coordinate systems.
-- **Photos** — the actual machine, workpiece, bit, and setup. Essential-tier articles should pair a **photo first, then the diagram** (concrete setup → symbolic/abstract notation), mirroring `exploring_electronics`'s photo-then-schematic pattern.
+- **Photos** — the actual machine, workpiece, bit, and setup. Beginner-tagged articles should pair a **photo first, then the diagram** (concrete setup → symbolic/abstract notation), mirroring `exploring_electronics`'s photo-then-schematic pattern.
 
 **Mermaid color scheme for this site (slate + amber accent, matches the brand layer):**
 
@@ -358,7 +304,7 @@ Validate all such URLs with WebFetch before publishing — tool vendors reorgani
 
 #### Read-Only vs Risky Operations
 
-Label every operation clearly for Essential-tier readers:
+Label every operation clearly for Beginner-tagged readers:
 
 ```markdown
 - ✅ **Safe (Non-Destructive):** Jogging with the spindle off, reading G-code, checking work zero with the machine idle
@@ -439,11 +385,11 @@ Before uncommenting an article in `mkdocs.yaml`:
 **✅ Content Quality:**
 
 - [ ] **NO REPETITION AUDIT** - Searched for repeated concepts across published articles in this section (CRITICAL!)
-- [ ] Opening hook with real-world relevance (Essential: empathetic beginner; Efficient/Mastery: scenario-based)
+- [ ] Opening hook with real-world relevance (Beginner: empathetic; Intermediate/Advanced: scenario-based)
 - [ ] Clear learning objectives
 - [ ] Values (dimensions, feeds, speeds, tolerances) are correct and practical
 - [ ] Code/G-code examples tested (or clearly marked as illustrative)
-- [ ] Safety considerations addressed (NEVER skip for Essential)
+- [ ] Safety considerations addressed (NEVER skip, regardless of difficulty tag)
 - [ ] Practice exercises with nested solutions (`??? tip "Solution"` inside question)
 - [ ] Key takeaways or quick recap
 - [ ] What's Next progression
@@ -459,7 +405,7 @@ Before uncommenting an article in `mkdocs.yaml`:
 
 **✅ Tone and Style:**
 
-- [ ] Correct persona for the tier (Essential vs. Efficient vs. Mastery)
+- [ ] Correct tone for the article's difficulty tag (Beginner vs. Intermediate vs. Advanced)
 - [ ] Safety-conscious throughout
 - [ ] Emoji usage limited (1-3 max, strategic)
 - [ ] No over-the-top marketing language
@@ -486,7 +432,7 @@ Before uncommenting an article in `mkdocs.yaml`:
 
 - [ ] Pre-publication link audit completed
 - [ ] **NEVER link to unpublished articles** - only link to articles uncommented in mkdocs.yaml
-- [ ] Cross-links added between published articles in the same tier
+- [ ] Cross-links added between published articles in the same topic
 - [ ] Referenced in "What's Next" from previous article
 - [ ] Cross-links to other exploring_* sites where relevant
 
@@ -496,18 +442,18 @@ Before uncommenting an article in `mkdocs.yaml`:
 
 This site teaches **CNC machining and CAD/CAM to hobbyists**, starting from the physical machine and building up to the abstractions (coordinate systems, G-code, feeds/speeds math) underneath it.
 
-**Essential** — err on the side of:
+**Beginner**-tagged articles — err on the side of:
 - More safety context rather than less
 - More concrete, hands-on framing rather than abstract-first explanations
 - Simpler cuts before complex ones
 - Reassurance that mistakes are recoverable (stock and bits are cheap; fingers are not)
 
-**Efficient** — err on the side of:
+**Intermediate**-tagged articles — err on the side of:
 - Peer-to-peer directness
 - Real feeds/speeds numbers and manufacturer data over simplified rules of thumb
 - Encouraging the reader to design their own parts, not just cut downloaded models
 
-**Mastery** — err on the side of:
+**Advanced**-tagged articles — err on the side of:
 - Precision and repeatability
 - Deep technical depth
 - Process control over one-off success

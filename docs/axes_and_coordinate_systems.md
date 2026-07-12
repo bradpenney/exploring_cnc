@@ -6,8 +6,8 @@ description: "Every move a CNC router makes is just three numbers: X, Y, Z. Lear
 
 # Axes and Coordinate Systems
 
-!!! abstract "Essential"
-    This article is part of the **Essential** learning path — the foundations of CNC machining from first principles. No prior knowledge required.
+!!! abstract "Beginner"
+    No prior CAD, CAM, or machining knowledge required.
 
 The first time you jog a CNC router with the arrow keys, you're watching three numbers change on a screen: X, Y, Z. Every single thing the machine does after that — every cut, every hole, every finished pass — comes down to nothing more than those three numbers changing in a planned sequence.
 
@@ -31,7 +31,7 @@ A CNC router moves in three independent, straight-line directions:
 Combine all three and you get a **coordinate** — a single point in space, written as `X10 Y25 Z-3`. That's the entire vocabulary. There's no other way to tell a CNC router where to go.
 
 <figure markdown>
-  ![Diagram showing machine zero at the home corner, work zero set on the workpiece corner, and the X, Y, and Z axis directions](../images/axes_and_work_zero.svg){ width="480" }
+  ![Diagram showing machine zero at the home corner, work zero set on the workpiece corner, and the X, Y, and Z axis directions](images/axes_and_work_zero.svg){ width="480" }
   <figcaption>Machine zero is fixed to the machine frame and found by homing. Work zero (set with G54) is wherever you put it on your stock — and that's what your G-code coordinates are actually measured from.</figcaption>
 </figure>
 

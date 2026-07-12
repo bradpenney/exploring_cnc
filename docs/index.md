@@ -18,7 +18,7 @@ Anyone starting out with a hobbyist CNC router — a new build, a used machine, 
 
 ## Where Do You Start?
 
-Articles are grouped into **topics** — the subjects of CNC work, like coordinate systems and toolpaths — and each topic deepens across three levels: **Essential** (start here, no prior knowledge needed), **Efficient** (for makers going off-script), and **Mastery** (production-grade depth).
+Articles are grouped into **topics** — the subjects of CNC work, like coordinate systems and toolpaths. Each article carries a difficulty tag (Beginner, Intermediate, Advanced) so you can gauge depth at a glance, but there's no paywall or tier to unlock — just start wherever your machine and your questions are.
 
 <div class="grid cards two-col" markdown>
 
@@ -28,7 +28,7 @@ Articles are grouped into **topics** — the subjects of CNC work, like coordina
 
     Start at the very beginning — no prior knowledge assumed.
 
-    [:octicons-arrow-right-24: Start with Axes and Coordinate Systems](essential/axes_and_coordinate_systems.md)
+    [:octicons-arrow-right-24: Start with Axes and Coordinate Systems](axes_and_coordinate_systems.md)
 
 -   :material-file-code: **Staring at a generated file?**
 
@@ -36,31 +36,23 @@ Articles are grouped into **topics** — the subjects of CNC work, like coordina
 
     Learn the small vocabulary behind every G-code file.
 
-    [:octicons-arrow-right-24: Start with Reading G-code](essential/reading_gcode_basics.md)
+    [:octicons-arrow-right-24: Start with Reading G-code](reading_gcode_basics.md)
 
 </div>
 
 ---
 
-## 📦 Essential
-
-The foundations — no prior knowledge needed. Work through these in order, by topic.
+## Topics
 
 **Machine Foundations**
 
-- [Axes and Coordinate Systems](essential/axes_and_coordinate_systems.md) — What X, Y, and Z actually mean, and why the machine needs two separate zeros
+- [Axes and Coordinate Systems](axes_and_coordinate_systems.md) — What X, Y, and Z actually mean, and why the machine needs two separate zeros
 
 **Reading G-code**
 
-- [Reading G-code](essential/reading_gcode_basics.md) — The small vocabulary behind every generated file, and why "modal" state matters
+- [Reading G-code](reading_gcode_basics.md) — The small vocabulary behind every generated file, and why "modal" state matters
 
-## ⚡ Efficient *(Coming soon)*
-
-The real CAD/CAM workflow: modeling in FreeCAD, generating toolpaths, choosing feeds and speeds for the material and bit, and running production-quality jobs.
-
-## 🎯 Mastery *(Coming soon)*
-
-Precision work: tolerances and fixturing, tool life and surface finish, machine calibration and squaring, and running repeatable batches.
+**CAD/CAM Workflow, Machine Control, Materials & Cutting, Maintenance & Calibration** *(coming soon)*
 
 ## Part of the BradPenney.io Network
 
