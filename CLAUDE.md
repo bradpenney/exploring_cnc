@@ -40,7 +40,7 @@ This is a hobby site, not a professional/enterprise or funnel site — there are
 
 **Git Operations**: The user handles all git operations (commits, pushes, etc.) themselves. Do not commit or push changes.
 
-**MkDocs Operations**: The user handles running `mkdocs serve` and `mkdocs build` themselves. Do not run these commands.
+**MkDocs Operations (updated 2026-07-30):** `poetry run mkdocs build --strict` is allowed for testing/verification — use it to confirm changes actually build cleanly before handing off. `mkdocs serve` is allowed too if a live preview is genuinely needed, but only on a non-default port (3000 is almost always occupied by something else) and only as a short-lived test — never left running. The user still handles real preview sessions and all deploys.
 
 ## Audience and Difficulty Tags
 
