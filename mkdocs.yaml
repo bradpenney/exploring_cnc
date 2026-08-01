@@ -86,6 +86,7 @@ plugins:
   # remove the line as each article is published.
   - rss:
       match_path: ".*"
+      pretty_print: true
       image: https://cnc.bradpenney.io/images/exploring_cnc.png
       abstract_chars_count: 160
       length: 20
