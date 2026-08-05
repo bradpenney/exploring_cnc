@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" font-family="sans-serif">
+  <title>Diagram of a CNC machine bed showing machine zero at the home corner, work zero set on the workpiece corner, and the X, Y, and Z axis directions</title>
+
+  <!-- Machine bed -->
+  <rect x="50" y="50" width="540" height="280" rx="10" fill="#2d3748" stroke="#1a202c" stroke-width="3" />
+  <text x="70" y="76" font-size="13" fill="#cbd5e0">Machine Bed</text>
+
+  <!-- Machine zero corner marker -->
+  <circle cx="70" cy="310" r="6" fill="#cbd5e0" stroke="#1a202c" stroke-width="1.5" />
+  <text x="84" y="314" font-size="13" fill="#eae4d6">Machine Zero (Home)</text>
+  <line x1="50" y1="290" x2="50" y2="330" stroke="#cbd5e0" stroke-width="1" stroke-dasharray="3,3" />
+  <line x1="50" y1="330" x2="90" y2="330" stroke="#cbd5e0" stroke-width="1" stroke-dasharray="3,3" />
+
+  <!-- Workpiece -->
+  <rect x="230" y="120" width="260" height="150" rx="4" fill="#eae4d6" stroke="#a89f8a" stroke-width="2" />
+  <text x="242" y="140" font-size="13" fill="#3a352a">Workpiece</text>
+
+  <!-- Work zero point (bottom-left corner of workpiece) -->
+  <circle cx="230" cy="270" r="7" fill="#f59e0b" stroke="#a05a00" stroke-width="1.5" />
+  <text x="235" y="296" font-size="13" fill="#f59e0b">Work Zero (G54)</text>
+
+  <!-- +X arrow -->
+  <line x1="230" y1="270" x2="330" y2="270" stroke="#f59e0b" stroke-width="3" />
+  <polygon points="330,270 318,264 318,276" fill="#f59e0b" />
+  <text x="335" y="274" font-size="15" fill="#f59e0b">+X</text>
+
+  <!-- +Y arrow -->
+  <line x1="230" y1="270" x2="230" y2="180" stroke="#f59e0b" stroke-width="3" />
+  <polygon points="230,180 224,192 236,192" fill="#f59e0b" />
+  <text x="238" y="178" font-size="15" fill="#f59e0b">+Y</text>
+
+  <!-- +Z arrow (isometric, up and to the left, out of the work surface) -->
+  <line x1="230" y1="270" x2="180" y2="220" stroke="#f59e0b" stroke-width="3" />
+  <polygon points="180,220 184,234 194,224" fill="#f59e0b" />
+  <text x="140" y="212" font-size="15" fill="#f59e0b">+Z (up)</text>
+
+  <!-- Spindle icon over the workpiece -->
+  <circle cx="400" cy="195" r="14" fill="none" stroke="#cbd5e0" stroke-width="2" />
+  <circle cx="400" cy="195" r="3" fill="#cbd5e0" />
+  <text x="378" y="222" font-size="12" fill="#cbd5e0">Spindle</text>
+</svg>
